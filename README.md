@@ -1,6 +1,8 @@
 # RabbitMQ_server
 Proyecto de servicios telematicos
 # manual de instalacion rabbit
+_NOTA_ : Recuerda ejecutar estos comandos con el super usuario `root`
+
 ```
 cat /etc/system-release ; sestatus ; hostname ; hostname -I ; dnf groupinstall "Development Tools" -y
 ```
@@ -52,7 +54,9 @@ rabbitmqctl status
 ```
 ss -antpl | grep 15672
 ```
-http://192.168.1.20:15672
-
+_NOTA_ : Recuerda que el protocolo rabbotmq esta determinado en el puerto `15672`
+```
+http://localhost:15672
+```
 Enlance de la instalacion
 https://quicknotepadtutorial.blogspot.com/2022/04/how-to-install-and-configure-rabbitmq.html
