@@ -211,3 +211,20 @@ En la otra máquina, ejecuta el emisor para enviar datos continuamente:
 python emisor.py
 ```
 Verás los mensajes generados aleatoriamente en la consola del receptor.
+
+5. comprobaciones de las paginas
+
+servicio rabbitmq 
+```
+localhost:15672
+```	
+_NOTA_: usuario : admin | contraseña : admin  
+
+
+servicio grafana
+```
+localhost:3000
+```
+_NOTA_: usuario : admin | contraseña : admin 
+
+
