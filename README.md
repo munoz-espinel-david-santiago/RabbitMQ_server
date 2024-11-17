@@ -69,7 +69,7 @@ https://quicknotepadtutorial.blogspot.com/2022/04/how-to-install-and-configure-r
 wget -q -O gpg.key https://rpm.grafana.com/gpg.key
 sudo rpm --import gpg.key
 ```
-### paso 2 Crea /etc/yum.repos.d/grafana.repo con el siguiente contenido ::
+### paso 2 Crea `/etc/yum.repos.d/grafana.repo` con el siguiente contenido ::
 ```
 [grafana]
 name=grafana
