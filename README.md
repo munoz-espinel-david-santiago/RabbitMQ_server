@@ -64,30 +64,46 @@ https://quicknotepadtutorial.blogspot.com/2022/04/how-to-install-and-configure-r
 
 # manual de intalacion de grafana para graficar 
 ## instalacion y configuracion de grafana para rocky linux 
-### paso 1: instalar grafana
+### paso 1: importar llaves de  the GPG key:
 ```
-sudo dnf install grafana -y
+wget -q -O gpg.key https://rpm.grafana.com/gpg.key
+sudo rpm --import gpg.key
 ```
-### paso 2: Iniciar y habilitar el servicio de Grafana:
+### paso 2 Crea /etc/yum.repos.d/grafana.repo con el siguiente contenido ::
+```
+[grafana]
+name=grafana
+baseurl=https://rpm.grafana.com
+repo_gpgcheck=1
+enabled=1
+gpgcheck=1
+gpgkey=https://rpm.grafana.com/gpg.key
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
+```
+### paso 3: instalar grafana
+```
+sudo dnf install grafana
+```
+
+### paso 4: habilitar el servicio 
 ```
 sudo systemctl start grafana-server
 sudo systemctl enable grafana-server
 ```
-### paso 3: opcion para utilizar con firewall (Abrir el puerto de Grafana (3000) en el firewall:)
-```
-sudo firewall-cmd --add-port=3000/tcp --permanent
-sudo firewall-cmd --reload
-```
-### paso 4: accerder a grafana 
+
+
+
+### paso 5: accerder a grafana 
 Acceder a Grafana: Abre un navegador web y accede a Grafana usando la dirección http://<tu-IP>:3000.
 
 Usuario y contraseña predeterminados: admin para ambos.
-### paso5: instalar el plugin de rabbitmq
+### paso 6: instalar el plugin de rabbitmq
 ```
 sudo grafana-cli plugins install rabbitmq-monitor
 ```
 
-### paso 6: reiniciar el servicio rabbitmq
+### paso 7: reiniciar el servicio rabbitmq
 ```
 sudo systemctl restart grafana-server
 ```
